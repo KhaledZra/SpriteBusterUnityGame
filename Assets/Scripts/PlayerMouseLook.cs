@@ -20,7 +20,6 @@ public class PlayerMouseLook : MonoBehaviour
 
     private void RotateBodyOnMousePosition()
     {
-        Debug.Log(Input.mousePosition);
         var mouse_pos = Input.mousePosition;
         mouse_pos.z = 5.23f; //The distance between the camera and object
         var object_pos = Camera.main.WorldToScreenPoint(_transform.position);
