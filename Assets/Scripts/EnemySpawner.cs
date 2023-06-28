@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform PlayerLocation;
     [SerializeField] private float spawnRate = 1.0f;
     [SerializeField] private BoxCollider2D boundryObject;
+    [SerializeField] private BoxCollider2D playerSafetyBoundry;
     
     private float _randomX;
     private float _randomY;
@@ -21,13 +23,13 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator SpawnEnemy(float spawnInterval, GameObject enemy)
     {
         // todo fix boundry to map, and new boundry around player
-        Debug.Log(boundryObject.bounds.max);
-        Debug.Log(boundryObject.bounds.min);
+        Debug.Log(playerSafetyBoundry.bounds.max);
+        Debug.Log(playerSafetyBoundry.bounds.min);
         // todo change range system
         yield return new WaitForSeconds(spawnInterval);
 
-        _randomX = Random.Range(-18f, 18f);
-        _randomY = Random.Range(-10f, 10f);
+        RandomizeSpawnPointUntilSafe();
+        
         GameObject newEnemy = Instantiate(
             enemy, 
             new Vector3(_randomX, _randomY, 0),
@@ -36,4 +38,31 @@ public class EnemySpawner : MonoBehaviour
         newEnemy.GetComponent<EnemyChase>().chaseTarget = PlayerLocation;
         StartCoroutine(SpawnEnemy(spawnInterval, enemy));
     }
+
+    private void RandomizeSpawnPointUntilSafe()
+    {
+        bool isSafeToSpawn = false;
+        
+        do
+        {
+            _randomX = Random.Range(boundryObject.bounds.min.x, boundryObject.bounds.max.x);
+            _randomY = Random.Range(boundryObject.bounds.min.y, boundryObject.bounds.max.y);
+
+            if (!IsValueBetweenRange(_randomX,
+                    playerSafetyBoundry.bounds.min.x,
+                    playerSafetyBoundry.bounds.max.x))
+            {
+                if (!IsValueBetweenRange(
+                        _randomY,
+                        playerSafetyBoundry.bounds.min.y,
+                        playerSafetyBoundry.bounds.max.y))
+                {
+                    isSafeToSpawn = true;
+                }
+            }
+        } while (!isSafeToSpawn);
+    }
+    
+    private bool IsValueBetweenRange(float value, float min, float max) 
+        => value >= min && value <= max;
 }
