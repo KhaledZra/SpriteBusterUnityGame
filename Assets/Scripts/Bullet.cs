@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -19,6 +20,9 @@ public class Bullet : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+
+            var killCountScript = GameObject.FindWithTag("KillCount").GetComponent<UpdateKillCounter>();
+            killCountScript.AddKill();
         }
     }
 }

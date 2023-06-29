@@ -22,10 +22,6 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemy(float spawnInterval, GameObject enemy)
     {
-        // todo fix boundry to map, and new boundry around player
-        Debug.Log(playerSafetyBoundry.bounds.max);
-        Debug.Log(playerSafetyBoundry.bounds.min);
-        // todo change range system
         yield return new WaitForSeconds(spawnInterval);
 
         RandomizeSpawnPointUntilSafe();

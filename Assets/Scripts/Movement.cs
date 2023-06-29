@@ -33,12 +33,12 @@ public class Movement : MonoBehaviour
         // }
         
          currentMovement = 
-             new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * (speed * Time.deltaTime);
+             new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
     }
 
     void FixedUpdate()
     {
         var rb = playerBody.GetComponent<Rigidbody2D>();
-        rb.velocity = currentMovement;
+        rb.velocity = currentMovement * Time.fixedDeltaTime;
     }
 }
