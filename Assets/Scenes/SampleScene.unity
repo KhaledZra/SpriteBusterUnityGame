@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: V2.3
+  m_text: V2.4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b55165c64bc4ea4a9a0e937d027ddd4, type: 2}
   m_sharedMaterial: {fileID: -6223936493725013006, guid: 7b55165c64bc4ea4a9a0e937d027ddd4, type: 2}
@@ -19192,6 +19192,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4028737547044047426, guid: 5f28991ef193f924ba84fd95e6d47d6d, type: 3}
       propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684457615331246359, guid: 5f28991ef193f924ba84fd95e6d47d6d, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684457615331246359, guid: 5f28991ef193f924ba84fd95e6d47d6d, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684457615331246359, guid: 5f28991ef193f924ba84fd95e6d47d6d, type: 3}
+      propertyPath: m_BackGroundColor.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5684457615331246569, guid: 5f28991ef193f924ba84fd95e6d47d6d, type: 3}
