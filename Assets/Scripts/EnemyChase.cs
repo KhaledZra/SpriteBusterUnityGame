@@ -10,6 +10,7 @@ public class EnemyChase : MonoBehaviour
     [SerializeField] public Transform chaseTarget;
     [SerializeField] public float chaseSpeed = 1.0f;
     [SerializeField] private bool isCaughtUp = false;
+    [SerializeField] private int damage = 1; 
 
     private Vector3 newLocation;
     private Transform _transform;
@@ -69,7 +70,8 @@ public class EnemyChase : MonoBehaviour
         // todo remove and make better later, this is for debug development
         if (other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            other.gameObject.GetComponent<HealthHandler>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }

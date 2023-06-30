@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private int damage = 1;
     private float _objectLifeLength = 10.0f;
 
     private void Awake()
@@ -18,11 +19,9 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
             Destroy(gameObject);
-
-            var killCountScript = GameObject.FindWithTag("KillCount").GetComponent<KillCountHandler>();
-            killCountScript.AddKill();
+            var healthHandler = other.gameObject.GetComponent<HealthHandler>();
+            healthHandler.TakeDamage(damage);
         }
     }
 }
