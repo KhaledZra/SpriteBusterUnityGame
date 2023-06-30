@@ -148,9 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseTarget: {fileID: 3117587452466713936, guid: 5f28991ef193f924ba84fd95e6d47d6d, type: 3}
-  chaseSpeed: 2
   isCaughtUp: 0
-  damage: 1
+  damage: 0
 --- !u!114 &-8036828846479775173
 MonoBehaviour:
   m_ObjectHideFlags: 0

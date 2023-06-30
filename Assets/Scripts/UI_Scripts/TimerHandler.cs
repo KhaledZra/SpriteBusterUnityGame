@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class TimerHandler : MonoBehaviour
 {
+    [SerializeField] private DifficultyScaler difficultyScaler;
+    
     private float _time = 0.0f;
     private int _seconds = 0;
     private int _minutes = 0;
     private TextMeshProUGUI timerText;
+
+    private EnemyHandler v;
+    private HealthHandler b;
     
     // Start is called before the first frame update
     void Start()
@@ -31,7 +36,9 @@ public class TimerHandler : MonoBehaviour
         if (_seconds >= 60)
         {
             _minutes++;
+            _seconds = 0;
             timerText.text = _minutes + ":" + _seconds;
+            difficultyScaler.ApplyDifficultyModifier(_minutes);
         }
     }
 }

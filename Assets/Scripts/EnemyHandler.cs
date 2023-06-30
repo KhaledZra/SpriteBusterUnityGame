@@ -5,10 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyChase : MonoBehaviour
+public class EnemyHandler : MonoBehaviour
 {
     [SerializeField] public Transform chaseTarget;
-    [SerializeField] public float chaseSpeed = 1.0f;
+    [SerializeField] public float chaseSpeed = 2.0f;
     [SerializeField] private bool isCaughtUp = false;
     [SerializeField] private int damage = 1; 
 

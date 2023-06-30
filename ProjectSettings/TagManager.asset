@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - KillCount
   - HealthUI
+  - TimerUI
   layers:
   - Default
   - TransparentFX

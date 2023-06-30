@@ -31,7 +31,8 @@ public class EnemySpawner : MonoBehaviour
             new Vector3(_randomX, _randomY, 0),
             Quaternion.identity);
         
-        newEnemy.GetComponent<EnemyChase>().chaseTarget = PlayerLocation;
+        newEnemy.SetActive(true);
+        newEnemy.GetComponent<EnemyHandler>().chaseTarget = PlayerLocation;
         StartCoroutine(SpawnEnemy(spawnInterval, enemy));
     }
 
