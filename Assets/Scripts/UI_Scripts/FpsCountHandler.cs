@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class FpsCounter : MonoBehaviour
+public class FpsCountHandler : MonoBehaviour
 {
     public TextMeshProUGUI fpsText;
     public float deltaTime;
@@ -13,6 +12,6 @@ public class FpsCounter : MonoBehaviour
     {
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
         float fps = 1.0f / deltaTime;
-        fpsText.text = Mathf.Ceil (fps).ToString();
+        fpsText.text = "Fps: " + Mathf.Ceil(fps);
     }
 }

@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
 
-            var killCountScript = GameObject.FindWithTag("KillCount").GetComponent<UpdateKillCounter>();
+            var killCountScript = GameObject.FindWithTag("KillCount").GetComponent<KillCountHandler>();
             killCountScript.AddKill();
         }
     }

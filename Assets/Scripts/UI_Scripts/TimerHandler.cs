@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerScript : MonoBehaviour
+public class TimerHandler : MonoBehaviour
 {
     private float _time = 0.0f;
     private int _seconds = 0;
