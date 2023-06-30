@@ -12,11 +12,11 @@ public class DifficultyScaler : MonoBehaviour
 
     public void ApplyDifficultyModifier(int gameTimeInMinutes)
     {
-        if (gameTimeInMinutes == 3) // minute 3
+        if (gameTimeInMinutes == 2) // minute 3
         {
             enemyComponent.chaseSpeed = 3f;
         }
-        else if (gameTimeInMinutes == 6) // minute 6
+        else if (gameTimeInMinutes == 5) // minute 6
         {
             enemyHealthComponent.Heal(1); // todo change later to set hp maybe
 
