@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class TimerHandler : MonoBehaviour
 {
+    // todo change private and add _
     [SerializeField] private DifficultyScaler difficultyScaler;
     
     private float _time = 0.0f;

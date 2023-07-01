@@ -1,0 +1,9 @@
+start:
+
+faster enemies - 3 mins
+2x hp enemies - 6 mins
+even faster enemies - 10 mins
+3x hp enemies - 13 mins
+even even faster enemies - 16 mins
+
+end 20 mins

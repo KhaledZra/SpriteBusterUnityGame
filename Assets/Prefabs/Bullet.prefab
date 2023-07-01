@@ -122,7 +122,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &7514855705169514235
 MonoBehaviour:
@@ -136,4 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f8f9f22b2a00643b258962cd46e27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killCountObject: {fileID: 5817641377529803179, guid: 9b54c0867e458cb47acec2a74c90c686, type: 3}
+  damage: 1
