@@ -7,8 +7,8 @@ using UnityEngine.Serialization;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform _followTarget;
-    [SerializeField] private float smoothSpeed = 5f;
-    [SerializeField] private float offsetDistance = 1f;
+    [SerializeField] private float smoothSpeed = 3f;
+    [SerializeField] private float offsetDistance = 0.2f;
 
     private Transform _cameraTransform;
     private Vector3 _worldMouseLocation;
@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         
         
@@ -39,7 +39,7 @@ public class CameraFollow : MonoBehaviour
         
         _worldMouseLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 targetPos = (_worldMouseLocation - _followTarget.position) * 0.2f;
+        Vector3 targetPos = (_worldMouseLocation - _followTarget.position) * offsetDistance;
         targetPos = Vector3.ClampMagnitude(targetPos, 2);
         
         _cameraTransform.position = Vector3.Lerp(_cameraTransform.position,  

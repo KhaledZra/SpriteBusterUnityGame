@@ -7,14 +7,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
-    private float _objectLifeLength = 10.0f;
+    private float _objectLifeLength = 2.0f;
 
     private void Awake()
     {
         Destroy(gameObject, _objectLifeLength);
     }
 
-    // // Kill what bullet hits
+    // Kill what bullet hits
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))

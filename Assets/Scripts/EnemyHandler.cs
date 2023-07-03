@@ -12,7 +12,7 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] private bool isCaughtUp = false;
     [SerializeField] private int damage = 1; 
 
-    private Vector3 newLocation;
+    private Vector3 _newLocation;
     private Transform _transform;
     // Start is called before the first frame update
     void Start()
@@ -25,21 +25,21 @@ public class EnemyHandler : MonoBehaviour
     {
         if (isCaughtUp == false)
         {
-            newLocation = Vector3.zero;
+            _newLocation = Vector3.zero;
         }
 
         if (_transform.position.x < chaseTarget.position.x) // player: 8.604879 | enemy: 4.320901
         {
             if ((_transform.position.x - chaseTarget.position.x) < -0.05f)
             {
-                newLocation.x = chaseSpeed * Time.deltaTime;
+                _newLocation.x = chaseSpeed * Time.deltaTime;
             }
         }
         else if (_transform.position.x > chaseTarget.position.x) 
         {
             if ((_transform.position.x - chaseTarget.position.x) > 0.05f)
             {
-                newLocation.x = -chaseSpeed * Time.deltaTime;
+                _newLocation.x = -chaseSpeed * Time.deltaTime;
             }
         }
 
@@ -47,21 +47,21 @@ public class EnemyHandler : MonoBehaviour
         {
             if ((_transform.position.y - chaseTarget.position.y) < -0.05f)
             {
-                newLocation.y = chaseSpeed * Time.deltaTime;
+                _newLocation.y = chaseSpeed * Time.deltaTime;
             }
         }
         else if (_transform.position.y > chaseTarget.position.y)
         {
             if ((_transform.position.y - chaseTarget.position.y) > 0.05f)
             {
-                newLocation.y = -chaseSpeed * Time.deltaTime;
+                _newLocation.y = -chaseSpeed * Time.deltaTime;
             }
         }
 
 
-        if (newLocation != Vector3.zero)
+        if (_newLocation != Vector3.zero)
         {
-            _transform.position += newLocation;
+            _transform.position += _newLocation;
         }
     }
 

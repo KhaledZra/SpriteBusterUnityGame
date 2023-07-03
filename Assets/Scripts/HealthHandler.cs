@@ -14,6 +14,9 @@ public class HealthHandler : MonoBehaviour
     {
         // todo set cap? maybe 3
         healthPoints += amount;
+        GameObject.FindWithTag("HealthUI")
+            .GetComponent<HealthUiHandler>()
+            .UpdateHealthUi();
     }
     
     public void TakeDamage(int amount)
