@@ -7,15 +7,29 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
+    [SerializeField] private bool hasLifeLength = true;
     private float _objectLifeLength = 2.0f;
 
     private void Awake()
     {
-        Destroy(gameObject, _objectLifeLength);
+        if (hasLifeLength)
+        {
+            Destroy(gameObject, _objectLifeLength);
+        }
     }
 
     // Kill what bullet hits
     private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            var healthHandler = other.gameObject.GetComponent<HealthHandler>();
+            healthHandler.TakeDamage(damage);
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {

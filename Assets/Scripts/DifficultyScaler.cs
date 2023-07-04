@@ -20,7 +20,7 @@ public class DifficultyScaler : MonoBehaviour
         }
         else if (gameTimeInMinutes == 2) // minute 6
         {
-            enemyHealthComponent.Heal(1); // todo change later to set hp maybe
+            enemyHealthComponent.SetMaxHealthPoints(2);
             enemyRenderComponent.color = Color.blue;
         }
         else if (gameTimeInMinutes == 3) // minute 10
@@ -30,7 +30,7 @@ public class DifficultyScaler : MonoBehaviour
         }
         else if (gameTimeInMinutes == 4) // minute 13
         {
-            enemyHealthComponent.Heal(1); // todo change later to set hp maybe
+            enemyHealthComponent.SetMaxHealthPoints(3);
             enemyRenderComponent.color = Color.white;
         }
         else if (gameTimeInMinutes == 5) // minute 16

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HealthHandler : MonoBehaviour
 {
+    [SerializeField] private int maxHealthPoints = 1;
     [SerializeField] private int healthPoints = 1;
     [SerializeField] private bool isPlayer = false;
     
@@ -12,13 +13,29 @@ public class HealthHandler : MonoBehaviour
 
     public void Heal(int amount)
     {
-        // todo set cap? maybe 3
+        // check if healing is needed
+        if (healthPoints == maxHealthPoints)
+        {
+            return;
+        }
+        
         healthPoints += amount;
+        // Check if overhealed
+        if (healthPoints > maxHealthPoints)
+        {
+            healthPoints = maxHealthPoints;
+        }
         GameObject.FindWithTag("HealthUI")
             .GetComponent<HealthUiHandler>()
             .UpdateHealthUi();
     }
-    
+
+    public void SetMaxHealthPoints(int newMaxValue)
+    {
+        maxHealthPoints = newMaxValue;
+        healthPoints = maxHealthPoints;
+    }
+
     public void TakeDamage(int amount)
     {
         healthPoints -= amount;
@@ -32,7 +49,9 @@ public class HealthHandler : MonoBehaviour
         {
             if (isPlayer)
             {
-                GameObject.FindWithTag("HealthUI").GetComponent<HealthUiHandler>().UpdateHealthUi();
+                GameObject.FindWithTag("HealthUI")
+                    .GetComponent<HealthUiHandler>()
+                    .UpdateHealthUi();
             }
             return;
         }
@@ -45,7 +64,7 @@ public class HealthHandler : MonoBehaviour
         }
         else if (gameObject.CompareTag("Enemy")) // most likely enemy, but to be safe
         {
-            var killCountScript = GameObject.FindWithTag("KillCount").GetComponent<KillCountHandler>();
+            KillCountHandler killCountScript = GameObject.FindWithTag("KillCount").GetComponent<KillCountHandler>();
             killCountScript.AddKill();
             Destroy(gameObject);
         }

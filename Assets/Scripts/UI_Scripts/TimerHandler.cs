@@ -31,14 +31,14 @@ public class TimerHandler : MonoBehaviour
         {
             _seconds++;
             _time -= 1.0f;
-            timerText.text = _minutes + ":" + _seconds;
+            timerText.text = _minutes + " : " + _seconds;
         }
 
         if (_seconds >= 60)
         {
             _minutes++;
             _seconds = 0;
-            timerText.text = _minutes + ":" + _seconds;
+            timerText.text = _minutes + " : " + _seconds;
             difficultyScaler.ApplyDifficultyModifier(_minutes);
         }
     }

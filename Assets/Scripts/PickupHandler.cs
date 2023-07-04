@@ -8,13 +8,12 @@ public class PickupHandler : MonoBehaviour
     private enum PickupType
     {
         Health,
-        Ammo,
         Speed,
-        Damage,
+        DamageShield,
     }
 
     [SerializeField] private PickupType pickupType = PickupType.Health;
-    [SerializeField] private GameObject playerObject;
+    [SerializeField] private ActivePickupHandler activePickupHandler;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -28,19 +27,15 @@ public class PickupHandler : MonoBehaviour
     {
         if (pickupType == PickupType.Health)
         {
-            playerObject.GetComponent<HealthHandler>().Heal(1);
-        }
-        else if (pickupType == PickupType.Ammo)
-        {
-            
+            activePickupHandler.ActivateHealthPickup();
         }
         else if (pickupType == PickupType.Speed)
         {
-            
+            activePickupHandler.ActivateSpeedPickup();
         }
-        else if (pickupType == PickupType.Damage)
+        else if (pickupType == PickupType.DamageShield)
         {
-            
+            activePickupHandler.ActivateBulletShieldPickup();
         }
     }
 }

@@ -46,7 +46,7 @@ public class PickupSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5, 10));
+            yield return new WaitForSeconds(Random.Range(40, 60));
             SpawnRandomPickup();
         }
     }
