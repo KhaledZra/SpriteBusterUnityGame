@@ -1516,7 +1516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: V3.0 - Beta
+  m_text: V3.1 - Beta
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b55165c64bc4ea4a9a0e937d027ddd4, type: 2}
   m_sharedMaterial: {fileID: -6223936493725013006, guid: 7b55165c64bc4ea4a9a0e937d027ddd4, type: 2}
@@ -19283,7 +19283,7 @@ MonoBehaviour:
   BulletObject: {fileID: 5788554598172635197, guid: ff6cbfac87b60f74d955dd19e8e005c0, type: 3}
   SpawnObject: {fileID: 2007660813}
   BulletForce: 5
-  IsAutoFire: 0
+  IsAutoFire: 1
 --- !u!1 &1405264049
 GameObject:
   m_ObjectHideFlags: 0

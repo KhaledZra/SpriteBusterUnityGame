@@ -11,17 +11,22 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform SpawnObject;
     [SerializeField] private float BulletForce = 5.0f;
     [SerializeField] private bool IsAutoFire = false;
+    
+    private bool _isCoolDownActive = false;
 
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && IsAutoFire)
+        if (!_isCoolDownActive)
         {
-            Shoot();
-        }
-        else if(Input.GetKeyDown(KeyCode.Mouse0) && !IsAutoFire)
-        {
-            Shoot();
+            if (Input.GetKey(KeyCode.Mouse0) && IsAutoFire)
+            {
+                Shoot();
+            }
+            else if(Input.GetKeyDown(KeyCode.Mouse0) && !IsAutoFire)
+            {
+                Shoot();
+            }
         }
     }
 
@@ -29,6 +34,14 @@ public class Gun : MonoBehaviour
     {
         GameObject bulletObject = Instantiate(BulletObject, SpawnObject.position, SpawnObject.rotation);
         bulletObject.GetComponent<Rigidbody2D>().velocity = SpawnObject.up * BulletForce;
+        StartCoroutine(FireRateDelay());
+    }
+
+    IEnumerator FireRateDelay()
+    {
+        _isCoolDownActive = true;
+        yield return new WaitForSeconds(0.25f);
+        _isCoolDownActive = false;
     }
     
     //// Not needed :) but cool solution
