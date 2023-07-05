@@ -7,11 +7,22 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    private enum GunTypes
+    {
+        Pistol,
+        Shotgun,
+        Rifle,
+        GrenadeLauncher,
+    }
+    
     [SerializeField] private GameObject BulletObject;
     [SerializeField] private Transform SpawnObject;
     [SerializeField] private float BulletForce = 5.0f;
     [SerializeField] private bool IsAutoFire = false;
-    
+    [SerializeField] private GunTypes gunTypes = GunTypes.Pistol;
+    [SerializeField] private List<Transform> shotgunSpawnObjects;
+
+
     private bool _isCoolDownActive = false;
 
 
@@ -21,26 +32,56 @@ public class Gun : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0) && IsAutoFire)
             {
-                Shoot();
+                ShootSelectedWeapon();
             }
             else if(Input.GetKeyDown(KeyCode.Mouse0) && !IsAutoFire)
             {
-                Shoot();
+                ShootSelectedWeapon();
             }
         }
     }
 
-    private void Shoot()
+    private void ShootSelectedWeapon()
+    {
+        if (gunTypes == GunTypes.Pistol)
+        {
+            ShootPistol();
+        }
+        else if (gunTypes == GunTypes.Shotgun)
+        {
+            ShootShotgun();
+        }
+        else if (gunTypes == GunTypes.Rifle)
+        {
+            
+        }
+        else if (gunTypes == GunTypes.GrenadeLauncher)
+        {
+            
+        }
+    }
+
+    private void ShootPistol()
     {
         GameObject bulletObject = Instantiate(BulletObject, SpawnObject.position, SpawnObject.rotation);
         bulletObject.GetComponent<Rigidbody2D>().velocity = SpawnObject.up * BulletForce;
-        StartCoroutine(FireRateDelay());
+        StartCoroutine(FireRateDelay(0.25f));
+    }
+    
+    private void ShootShotgun()
+    {
+        shotgunSpawnObjects.ForEach(spawnObject =>
+        {
+            GameObject bulletObject = Instantiate(BulletObject, spawnObject.position, spawnObject.rotation);
+            bulletObject.GetComponent<Rigidbody2D>().velocity = spawnObject.up * BulletForce;
+        });
+        StartCoroutine(FireRateDelay(0.5f));
     }
 
-    IEnumerator FireRateDelay()
+    IEnumerator FireRateDelay(float fireRate)
     {
         _isCoolDownActive = true;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(fireRate);
         _isCoolDownActive = false;
     }
     
