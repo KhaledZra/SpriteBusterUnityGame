@@ -60,7 +60,7 @@ public class HealthHandler : MonoBehaviour
         if (isPlayer)
         {
             // todo change to better system later (playerDeathHandler)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("Scenes/MainMenu");
         }
         else if (gameObject.CompareTag("Enemy")) // most likely enemy, but to be safe
         {
