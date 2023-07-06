@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 948455367721591924}
   - component: {fileID: 948455367721591931}
   m_Layer: 0
-  m_Name: BulletShield
+  m_Name: BulletShieldPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

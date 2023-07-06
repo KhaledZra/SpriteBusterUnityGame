@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
         Pistol,
         Shotgun,
         Rifle,
+        MachineGun,
         GrenadeLauncher,
     }
     
@@ -21,8 +22,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private bool IsAutoFire = false;
     [SerializeField] private GunTypes gunTypes = GunTypes.Pistol;
     [SerializeField] private List<Transform> shotgunSpawnObjects;
-
-
+    
     private bool _isCoolDownActive = false;
 
 
@@ -53,7 +53,11 @@ public class Gun : MonoBehaviour
         }
         else if (gunTypes == GunTypes.Rifle)
         {
-            
+            ShootRifle();
+        }
+        else if (gunTypes == GunTypes.MachineGun)
+        {
+            ShootMachineGun();
         }
         else if (gunTypes == GunTypes.GrenadeLauncher)
         {
@@ -75,7 +79,21 @@ public class Gun : MonoBehaviour
             GameObject bulletObject = Instantiate(BulletObject, spawnObject.position, spawnObject.rotation);
             bulletObject.GetComponent<Rigidbody2D>().velocity = spawnObject.up * BulletForce;
         });
-        StartCoroutine(FireRateDelay(0.5f));
+        StartCoroutine(FireRateDelay(1f));
+    }
+    
+    private void ShootRifle()
+    {
+        GameObject bulletObject = Instantiate(BulletObject, SpawnObject.position, SpawnObject.rotation);
+        bulletObject.GetComponent<Rigidbody2D>().velocity = SpawnObject.up * BulletForce;
+        StartCoroutine(FireRateDelay(0.1f));
+    }
+    
+    private void ShootMachineGun()
+    {
+        GameObject bulletObject = Instantiate(BulletObject, SpawnObject.position, SpawnObject.rotation);
+        bulletObject.GetComponent<Rigidbody2D>().velocity = SpawnObject.up * BulletForce;
+        StartCoroutine(FireRateDelay(0.01f));
     }
 
     IEnumerator FireRateDelay(float fireRate)

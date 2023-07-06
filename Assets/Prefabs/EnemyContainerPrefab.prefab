@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8403290334796285950}
   - component: {fileID: 3730005702711673170}
   m_Layer: 0
-  m_Name: EnemyContainer
+  m_Name: EnemyContainerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
