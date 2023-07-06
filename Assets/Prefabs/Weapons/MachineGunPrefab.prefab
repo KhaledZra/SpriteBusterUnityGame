@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletObject: {fileID: 5788554598172635197, guid: ff6cbfac87b60f74d955dd19e8e005c0, type: 3}
   SpawnObject: {fileID: 436076877307598828}
-  BulletForce: 5
+  BulletForce: 7
   IsAutoFire: 1
   gunTypes: 3
   shotgunSpawnObjects: []

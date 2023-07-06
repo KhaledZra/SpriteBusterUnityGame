@@ -5,21 +5,22 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject EnemyPreFab;
-    [SerializeField] private Transform PlayerLocation;
+    [SerializeField] private GameObject enemyPreFab;
+    [SerializeField] private GameObject bossPreFab;
+    [SerializeField] private Transform playerLocation;
     [SerializeField] private float spawnRate = 1.0f;
     [SerializeField] private GenerateSafeSpawn spawnComponent;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemy(spawnRate, EnemyPreFab));
+        SpawnBoss(bossPreFab);
+        StartCoroutine(SpawnEnemy(spawnRate, enemyPreFab));
     }
 
     private IEnumerator SpawnEnemy(float spawnInterval, GameObject enemy)
     {
         yield return new WaitForSeconds(spawnInterval);
-
         Vector2 randomPos = spawnComponent.RandomizeSpawnPointUntilSafe();
         
         GameObject newEnemy = Instantiate(
@@ -28,7 +29,21 @@ public class EnemySpawner : MonoBehaviour
             Quaternion.identity);
         
         newEnemy.SetActive(true);
-        newEnemy.GetComponent<EnemyHandler>().chaseTarget = PlayerLocation;
+        newEnemy.GetComponent<EnemyHandler>().chaseTarget = playerLocation;
+
         StartCoroutine(SpawnEnemy(spawnInterval, enemy));
+        
+    }
+
+    private void SpawnBoss(GameObject bossObject)
+    {
+        Vector2 randomPos = spawnComponent.RandomizeSpawnPointUntilSafe();
+        
+        GameObject newEnemy = Instantiate(
+            bossObject,
+            new Vector3(randomPos.x, randomPos.y, 0),
+            Quaternion.identity);
+        
+        newEnemy.GetComponent<EnemyHandler>().chaseTarget = playerLocation;
     }
 }

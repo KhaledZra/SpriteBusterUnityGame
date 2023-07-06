@@ -54,7 +54,7 @@ public class ActivePickupHandler : MonoBehaviour
 
     private IEnumerator StartSpeedBuff()
     {
-        playerObject.GetComponent<Movement>().speed *= 1.25f;
+        playerObject.GetComponent<Movement>().speed *= 2f;
         isSpeedPickupActive = true;
 
         yield return new WaitForSeconds(10);

@@ -1405,7 +1405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: V3.4 - Beta
+  m_text: V3.5 - Beta
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b55165c64bc4ea4a9a0e937d027ddd4, type: 2}
   m_sharedMaterial: {fileID: -6223936493725013006, guid: 7b55165c64bc4ea4a9a0e937d027ddd4, type: 2}
@@ -1806,8 +1806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885b1d04611fea1408730f5d7e63725a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPreFab: {fileID: 4394338498153831659}
-  PlayerLocation: {fileID: 1609381354}
+  enemyPreFab: {fileID: 4394338498153831659}
+  bossPreFab: {fileID: 7332620869585018952, guid: 6fbce042af122594491f3d463711730f, type: 3}
+  playerLocation: {fileID: 1609381354}
   spawnRate: 1
   spawnComponent: {fileID: 909556552}
 --- !u!4 &909556551
@@ -19536,8 +19537,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 793479974}
-  - {fileID: 1751483503}
   - {fileID: 938933388168640197}
+  - {fileID: 1751483503}
   m_Father: {fileID: 109734855}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19838,7 +19839,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1609381354}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1226664004166544029
 PrefabInstance:
@@ -20399,7 +20400,7 @@ PrefabInstance:
       objectReference: {fileID: 452453711}
     - target: {fileID: 1712072468982334246, guid: 1fe4122cb253579488fcab9eedc58ce4, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1712072468982334246, guid: 1fe4122cb253579488fcab9eedc58ce4, type: 3}
       propertyPath: m_LocalPosition.x
