@@ -7,13 +7,23 @@ public class WeaponEquipHandler : MonoBehaviour
 {
     [SerializeField] private List<GameObject> weaponPrefabs;
     [SerializeField] private int selectedWeapon = 0;
+    [SerializeField] private EquippedUiHandler equippedUi;
 
     private GameObject _selectedWeaponInstance;
     private bool _isCooldownActive = false;
 
+    public void UpdateUi()
+    {
+        if (selectedWeapon == 0) equippedUi.UpdateEquipmentUi("Pistol", 0);
+        if (selectedWeapon == 1) equippedUi.UpdateEquipmentUi("Shotgun", 1);
+        if (selectedWeapon == 2) equippedUi.UpdateEquipmentUi("Rifle", 2);
+        if (selectedWeapon == 3) equippedUi.UpdateEquipmentUi("Minigun", 3);
+    }
+
     private void Start()
     {
         LoadWeapon();
+        UpdateUi();
     }
 
     private void Update()
@@ -24,21 +34,25 @@ public class WeaponEquipHandler : MonoBehaviour
             {
                 selectedWeapon = 0;
                 SwapWeapon();
+                UpdateUi();
             }
             else if (Input.GetKey("2") && (selectedWeapon != 1))
             {
                 selectedWeapon = 1;
                 SwapWeapon();
+                UpdateUi();
             }
             else if (Input.GetKey("3") && (selectedWeapon != 2))
             {
                 selectedWeapon = 2;
                 SwapWeapon();
+                UpdateUi();
             }
             else if (Input.GetKey("4") && (selectedWeapon != 3))
             {
                 selectedWeapon = 3;
                 SwapWeapon();
+                UpdateUi();
             }
         }
     }

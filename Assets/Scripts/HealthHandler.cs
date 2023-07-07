@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,15 @@ public class HealthHandler : MonoBehaviour
     [SerializeField] private int maxHealthPoints = 1;
     [SerializeField] private int healthPoints = 1;
     [SerializeField] private bool isPlayer = false;
-    
+    [SerializeField] private HpBarHandler healthBar;
+
+    private bool _hasHealthBar = false;
+
+    private void Start()
+    {
+        if (healthBar != null) _hasHealthBar = true;
+    }
+
     public int GetHealthPoints() => healthPoints;
 
     public void Heal(int amount)
@@ -28,6 +37,10 @@ public class HealthHandler : MonoBehaviour
         GameObject.FindWithTag("HealthUI")
             .GetComponent<HealthUiHandler>()
             .UpdateHealthUi();
+        if (_hasHealthBar)
+        {
+            healthBar.UpdateHealthBar(healthPoints, maxHealthPoints);
+        }
     }
 
     public void SetMaxHealthPoints(int newMaxValue)
@@ -53,6 +66,11 @@ public class HealthHandler : MonoBehaviour
                     .GetComponent<HealthUiHandler>()
                     .UpdateHealthUi();
             }
+
+            if (_hasHealthBar)
+            {
+                healthBar.UpdateHealthBar(healthPoints, maxHealthPoints);
+            }
             return;
         }
         
@@ -60,7 +78,7 @@ public class HealthHandler : MonoBehaviour
         if (isPlayer)
         {
             // todo change to better system later (playerDeathHandler)
-            SceneManager.LoadScene("Scenes/MainMenu");
+            SceneManager.LoadScene("LoseScene");
         }
         else if (gameObject.CompareTag("Enemy")) // most likely enemy, but to be safe
         {

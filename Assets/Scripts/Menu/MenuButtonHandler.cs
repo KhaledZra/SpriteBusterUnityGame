@@ -11,12 +11,20 @@ public class MenuButtonHandler : MonoBehaviour
     [SerializeField] private Button shopButton;
     [SerializeField] private Button tutorialButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private Button mainMenuButton;
     void Start()
     {
         startButton.onClick.AddListener(TaskOnClickStartGame);
-        // shopButton.onClick.AddListener(TaskOnClickStartGame);
-        // tutorialButton.onClick.AddListener(TaskOnClickStartGame);
         quitButton.onClick.AddListener(TaskOnClickQuitGame);
+        if (mainMenuButton != null) // indicates script being used by lose menu
+        {
+            mainMenuButton.onClick.AddListener(TaskOnClickMainMenu);
+        }
+        else // indicates script being used by main menu
+        {
+            // shopButton.onClick.AddListener(TaskOnClickStartGame);
+            // tutorialButton.onClick.AddListener(TaskOnClickStartGame);
+        }
     }
     void TaskOnClickStartGame()
     {
@@ -32,5 +40,10 @@ public class MenuButtonHandler : MonoBehaviour
         
         // todo ship with this one:
         Application.Quit();
+    }
+    
+    void TaskOnClickMainMenu()
+    {
+        SceneManager.LoadScene("Scenes/MainMenu");
     }
 }

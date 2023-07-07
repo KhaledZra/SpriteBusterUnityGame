@@ -21,7 +21,7 @@ public class EnemyHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isCaughtUp == false)
         {
@@ -32,14 +32,14 @@ public class EnemyHandler : MonoBehaviour
         {
             if ((_transform.position.x - chaseTarget.position.x) < -0.05f)
             {
-                _newLocation.x = chaseSpeed * Time.deltaTime;
+                _newLocation.x = chaseSpeed;
             }
         }
         else if (_transform.position.x > chaseTarget.position.x) 
         {
             if ((_transform.position.x - chaseTarget.position.x) > 0.05f)
             {
-                _newLocation.x = -chaseSpeed * Time.deltaTime;
+                _newLocation.x = -chaseSpeed;
             }
         }
 
@@ -47,21 +47,21 @@ public class EnemyHandler : MonoBehaviour
         {
             if ((_transform.position.y - chaseTarget.position.y) < -0.05f)
             {
-                _newLocation.y = chaseSpeed * Time.deltaTime;
+                _newLocation.y = chaseSpeed;
             }
         }
         else if (_transform.position.y > chaseTarget.position.y)
         {
             if ((_transform.position.y - chaseTarget.position.y) > 0.05f)
             {
-                _newLocation.y = -chaseSpeed * Time.deltaTime;
+                _newLocation.y = -chaseSpeed;
             }
         }
 
 
         if (_newLocation != Vector3.zero)
         {
-            _transform.position += _newLocation;
+            _transform.position += Vector3.Lerp(_transform.position, _newLocation * Time.fixedDeltaTime, 5f);
         }
     }
 
