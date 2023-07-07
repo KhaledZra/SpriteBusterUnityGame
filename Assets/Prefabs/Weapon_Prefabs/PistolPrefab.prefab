@@ -269,10 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dab8442e7092d249bbd831f281839dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletObject: {fileID: 5788554598172635197, guid: ff6cbfac87b60f74d955dd19e8e005c0, type: 3}
-  SpawnObject: {fileID: 6063855467300449837}
-  BulletForce: 7
-  IsAutoFire: 1
+  bulletObject: {fileID: 5788554598172635197, guid: ff6cbfac87b60f74d955dd19e8e005c0, type: 3}
+  spawnObject: {fileID: 6063855467300449837}
+  bulletForce: 7
+  fireRate: 0.25
   gunTypes: 0
   shotgunSpawnObjects: []
 --- !u!1 &7932798100961703394
