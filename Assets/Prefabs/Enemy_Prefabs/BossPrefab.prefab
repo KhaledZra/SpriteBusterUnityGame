@@ -427,9 +427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560f2da28dd81ec40bd473b373685dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 10000
-  healthPoints: 10000
+  maxHealthPoints: 9000
+  healthPoints: 9000
   isPlayer: 0
+  isBoss: 1
   healthBar: {fileID: 6158422014436856919}
 --- !u!58 &8580987368953591308
 CircleCollider2D:

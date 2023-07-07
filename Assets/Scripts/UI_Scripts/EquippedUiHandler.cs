@@ -3,23 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class EquippedUiHandler : MonoBehaviour
 {
-    [SerializeField] List<Sprite> equipmentSprites;
-    [SerializeField] Image equipmentImage;
-    
-    private TextMeshProUGUI _equipmentText;
+    [SerializeField] private List<Sprite> equipmentSprites;
+    [SerializeField] private Image equipmentImage;
+    [SerializeField] private TextMeshProUGUI equipmentText;
 
     private void Start()
     {
-        _equipmentText = gameObject.GetComponent<TextMeshProUGUI>();
+        equipmentText = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     public void UpdateEquipmentUi(string weaponName, int weaponOrder)
     {
-        _equipmentText.text = weaponName;
+        equipmentText.text = weaponName;
         equipmentImage.sprite = equipmentSprites[weaponOrder];
     }
 }

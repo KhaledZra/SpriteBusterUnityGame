@@ -12,7 +12,7 @@ public class WeaponEquipHandler : MonoBehaviour
     private GameObject _selectedWeaponInstance;
     private bool _isCooldownActive = false;
 
-    public void UpdateUi()
+    private void UpdateUi()
     {
         if (selectedWeapon == 0) equippedUi.UpdateEquipmentUi("Pistol", 0);
         if (selectedWeapon == 1) equippedUi.UpdateEquipmentUi("Shotgun", 1);

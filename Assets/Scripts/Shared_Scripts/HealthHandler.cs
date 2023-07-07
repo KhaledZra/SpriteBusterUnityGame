@@ -9,6 +9,7 @@ public class HealthHandler : MonoBehaviour
     [SerializeField] private int maxHealthPoints = 1;
     [SerializeField] private int healthPoints = 1;
     [SerializeField] private bool isPlayer = false;
+    [SerializeField] private bool isBoss = false;
     [SerializeField] private HpBarHandler healthBar;
 
     private bool _hasHealthBar = false;
@@ -77,8 +78,11 @@ public class HealthHandler : MonoBehaviour
         // Death mechanics
         if (isPlayer)
         {
-            // todo change to better system later (playerDeathHandler)
             SceneManager.LoadScene("LoseScene");
+        }
+        else if (isBoss)
+        {
+            SceneManager.LoadScene("WinScene");
         }
         else if (gameObject.CompareTag("Enemy")) // most likely enemy, but to be safe
         {
