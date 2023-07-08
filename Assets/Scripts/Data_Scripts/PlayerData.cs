@@ -31,7 +31,7 @@ public class PlayerData
         {
             if (killRecord >= 250)
             {
-                isShotgunUnlocked = true;
+                isRifleUnlocked = true;
             }
         }
         
@@ -39,7 +39,7 @@ public class PlayerData
         {
             if (killRecord >= 500)
             {
-                isShotgunUnlocked = true;
+                isMinigunUnlocked = true;
             }
         }
     }
