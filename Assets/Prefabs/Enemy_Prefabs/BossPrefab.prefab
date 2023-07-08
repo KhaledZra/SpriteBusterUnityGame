@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 7332620869585018954}
   - component: {fileID: -8036828846479775173}
   - component: {fileID: 8580987368953591308}
+  - component: {fileID: -5624382604079153859}
   m_Layer: 6
   m_Name: BossPrefab
   m_TagString: Enemy
@@ -429,9 +430,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 9000
   healthPoints: 9000
-  isPlayer: 0
   isBoss: 1
   healthBar: {fileID: 6158422014436856919}
+  playerDataHandler: {fileID: -5624382604079153859}
+  isPlayer: 0
+  healthUiHandler: {fileID: 0}
 --- !u!58 &8580987368953591308
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -448,6 +451,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &-5624382604079153859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332620869585018952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58b12b47cc2f8845bf2de4b9b921072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7495816432868971560
 GameObject:
   m_ObjectHideFlags: 0

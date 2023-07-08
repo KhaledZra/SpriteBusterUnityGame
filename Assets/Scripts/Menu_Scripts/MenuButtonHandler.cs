@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MenuButtonHandler : MonoBehaviour
 {
     [SerializeField] private Button startButton;
-    [SerializeField] private Button shopButton;
+    [SerializeField] private Button unlocksButton;
     [SerializeField] private Button tutorialButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button mainMenuButton;
@@ -18,6 +18,10 @@ public class MenuButtonHandler : MonoBehaviour
         if (startButton != null)
         {
             startButton.onClick.AddListener(TaskOnClickStartGame);
+        }
+        if (unlocksButton != null)
+        {
+            unlocksButton.onClick.AddListener(TaskOnClickUnlocks);
         }
         if (mainMenuButton != null)
         {
@@ -38,6 +42,11 @@ public class MenuButtonHandler : MonoBehaviour
         SceneManager.LoadScene("Scenes/PlayScene");
     }
     
+    void TaskOnClickUnlocks()
+    {
+        SceneManager.LoadScene("Scenes/UnlockScene");
+    }
+    
     void TaskOnClickMainMenu()
     {
         SceneManager.LoadScene("Scenes/MainMenu");
@@ -50,12 +59,6 @@ public class MenuButtonHandler : MonoBehaviour
     
     void TaskOnClickQuitGame()
     {
-        // todo save game data
-        
-        // todo for debug
-        //UnityEditor.EditorApplication.isPlaying = false;
-        
-        // todo ship with this one:
         Application.Quit();
     }
 }

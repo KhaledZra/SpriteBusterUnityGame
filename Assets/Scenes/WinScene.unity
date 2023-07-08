@@ -408,7 +408,7 @@ RectTransform:
   - {fileID: 1788457213}
   - {fileID: 2031052829}
   m_Father: {fileID: 1733110286}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -484,12 +484,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1303245355}
-  m_RootOrder: 0
+  m_Father: {fileID: 1733110286}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -210.9375, y: -199.81252}
+  m_AnchoredPosition: {x: 73, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1013018982
@@ -577,11 +577,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1013018981}
-  - {fileID: 1685358295}
+  m_Children: []
   m_Father: {fileID: 1733110286}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -944,12 +942,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1303245355}
-  m_RootOrder: 1
+  m_Father: {fileID: 1733110286}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 210.9375, y: -199.81252}
+  m_AnchoredPosition: {x: -73, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1685358296
@@ -1105,6 +1103,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 690866816}
+  - {fileID: 1013018981}
+  - {fileID: 1685358295}
   - {fileID: 1303245355}
   - {fileID: 381335572}
   m_Father: {fileID: 0}
@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 1565674254}
-  shopButton: {fileID: 0}
+  unlocksButton: {fileID: 0}
   tutorialButton: {fileID: 0}
   quitButton: {fileID: 2031052830}
   mainMenuButton: {fileID: 1788457210}

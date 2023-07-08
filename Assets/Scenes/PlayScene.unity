@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 109734854}
   - component: {fileID: 109734856}
   - component: {fileID: 109734857}
-  - component: {fileID: 109734858}
+  - component: {fileID: 109734859}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -304,17 +304,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9566f81d294d6e4ea30bc651c4b25a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameRateCap: 30
---- !u!114 &109734858
+  frameRateCap: 165
+--- !u!114 &109734859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109734853}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27b51df4dcb53a43826246ee2f85c9d, type: 3}
+  m_Script: {fileID: 11500000, guid: d58b12b47cc2f8845bf2de4b9b921072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &240979376 stripped
@@ -391,6 +391,7 @@ MonoBehaviour:
   playerObject: {fileID: 1609381353}
   bulletShieldPrefab: {fileID: 2099951569}
   isSpeedPickupActive: 0
+  playerLight: {fileID: 658765897}
 --- !u!1 &310410908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,8 +2107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -71}
-  m_SizeDelta: {x: 150, y: 100}
+  m_AnchoredPosition: {x: 120.49994, y: -71}
+  m_SizeDelta: {x: 191, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786270579
 MonoBehaviour:
@@ -2129,7 +2130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: V3.8 - Beta
+  m_text: V4.0 - Release
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7b55165c64bc4ea4a9a0e937d027ddd4, type: 2}
   m_sharedMaterial: {fileID: -6223936493725013006, guid: 7b55165c64bc4ea4a9a0e937d027ddd4, type: 2}
@@ -2156,8 +2157,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2293,8 +2294,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &793479978
-CircleCollider2D:
+--- !u!61 &793479978
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2307,8 +2308,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9, y: 2.1}
+    newSize: {x: 1.9, y: 2.1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 1.05
+  m_Size: {x: 1.9, y: 2.1}
+  m_EdgeRadius: 0
 --- !u!1 &857826038
 GameObject:
   m_ObjectHideFlags: 0
@@ -20629,7 +20640,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &1621701870
 GameObject:
@@ -21060,7 +21071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe05f58aa3f7254d95c84557022fd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 1609381353}
 --- !u!114 &1856502331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21209,6 +21219,7 @@ MonoBehaviour:
   - {fileID: 436076878147432470, guid: 993f15bcf2a9f874586663d07f29849a, type: 3}
   selectedWeapon: 0
   equippedUi: {fileID: 427706250}
+  playerDataHandler: {fileID: 109734859}
 --- !u!1 &2095823783
 GameObject:
   m_ObjectHideFlags: 0
@@ -21988,7 +21999,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4394338498153831657
 MonoBehaviour:
@@ -22108,7 +22119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0006378591, y: -0.017909765}
+  m_Offset: {x: 0.0046209693, y: -0.01269424}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -22119,7 +22130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6208522, y: 2.3027492}
+  m_Size: {x: 1.7748636, y: 2.3966358}
   m_EdgeRadius: 0
 --- !u!114 &4855622697490494997
 MonoBehaviour:
@@ -22149,9 +22160,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 1
   healthPoints: 1
-  isPlayer: 0
   isBoss: 0
   healthBar: {fileID: 531384396}
+  playerDataHandler: {fileID: 0}
+  isPlayer: 0
+  healthUiHandler: {fileID: 0}
 --- !u!114 &8585041184448051013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22164,11 +22177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560f2da28dd81ec40bd473b373685dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 2
-  healthPoints: 2
-  isPlayer: 1
+  maxHealthPoints: 3
+  healthPoints: 3
   isBoss: 0
   healthBar: {fileID: 1637239611}
+  playerDataHandler: {fileID: 109734859}
+  isPlayer: 1
+  healthUiHandler: {fileID: 1856502330}
 --- !u!114 &8585041184448051014
 MonoBehaviour:
   m_ObjectHideFlags: 0

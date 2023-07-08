@@ -8,9 +8,11 @@ public class WeaponEquipHandler : MonoBehaviour
     [SerializeField] private List<GameObject> weaponPrefabs;
     [SerializeField] private int selectedWeapon = 0;
     [SerializeField] private EquippedUiHandler equippedUi;
+    [SerializeField] private JsonPlayerDataHandler playerDataHandler;
 
     private GameObject _selectedWeaponInstance;
     private bool _isCooldownActive = false;
+    private PlayerData _playerData;
 
     private void UpdateUi()
     {
@@ -22,6 +24,7 @@ public class WeaponEquipHandler : MonoBehaviour
 
     private void Start()
     {
+        _playerData = playerDataHandler.LoadPlayerDataFromJson();
         LoadWeapon();
         UpdateUi();
     }
@@ -36,19 +39,19 @@ public class WeaponEquipHandler : MonoBehaviour
                 SwapWeapon();
                 UpdateUi();
             }
-            else if (Input.GetKey("2") && (selectedWeapon != 1))
+            else if (Input.GetKey("2") && (selectedWeapon != 1) && _playerData.isShotgunUnlocked)
             {
                 selectedWeapon = 1;
                 SwapWeapon();
                 UpdateUi();
             }
-            else if (Input.GetKey("3") && (selectedWeapon != 2))
+            else if (Input.GetKey("3") && (selectedWeapon != 2) && _playerData.isRifleUnlocked)
             {
                 selectedWeapon = 2;
                 SwapWeapon();
                 UpdateUi();
             }
-            else if (Input.GetKey("4") && (selectedWeapon != 3))
+            else if (Input.GetKey("4") && (selectedWeapon != 3) && _playerData.isMinigunUnlocked)
             {
                 selectedWeapon = 3;
                 SwapWeapon();

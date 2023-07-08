@@ -70,8 +70,8 @@ public class EnemyHandler : MonoBehaviour
         // todo remove and make better later, this is for debug development
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<HealthHandler>().TakeDamage(damage);
             Destroy(gameObject);
+            other.gameObject.GetComponent<HealthHandler>().TakeDamage(damage);
         }
     }
 }

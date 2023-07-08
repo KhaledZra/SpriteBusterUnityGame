@@ -17,4 +17,9 @@ public class KillCountHandler : MonoBehaviour
         _killCount++;
         _killCountText.text = "Kills: " + _killCount;
     }
+
+    public int GetKillCount()
+    {
+        return _killCount;
+    }
 }

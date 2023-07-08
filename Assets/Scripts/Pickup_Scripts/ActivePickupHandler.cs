@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ActivePickupHandler : MonoBehaviour
 {
     [SerializeField] private GameObject playerObject;
     [SerializeField] public GameObject bulletShieldPrefab;
     [SerializeField] public bool isSpeedPickupActive = false;
+    [SerializeField] public Light2D playerLight;
 
     private Coroutine _speedCoroutine;
     private float _oldSpeed;
@@ -56,9 +58,10 @@ public class ActivePickupHandler : MonoBehaviour
     {
         playerObject.GetComponent<Movement>().speed *= 2f;
         isSpeedPickupActive = true;
+        playerLight.color = Color.green;
 
         yield return new WaitForSeconds(10);
-
+        
         SetSpeedToNormal();
     }
 
@@ -66,5 +69,6 @@ public class ActivePickupHandler : MonoBehaviour
     {
         playerObject.GetComponent<Movement>().speed = _oldSpeed;
         isSpeedPickupActive = false;
+        playerLight.color = Color.white;
     }
 }

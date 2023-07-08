@@ -6,20 +6,15 @@ using UnityEngine;
 
 public class HealthUiHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject playerObject;
-
     private TextMeshProUGUI _healthText;
-    private int _currentHealth;
 
     private void Start()
     {
         _healthText = gameObject.GetComponent<TextMeshProUGUI>();
-        UpdateHealthUi();
     }
 
-    public void UpdateHealthUi()
+    public void UpdateHealthUi(int currentHealth)
     {
-        _currentHealth = playerObject.GetComponent<HealthHandler>().GetHealthPoints();
-        _healthText.text = "Health: " + _currentHealth;
+        _healthText.text = "Health: " + currentHealth;
     }
 }
