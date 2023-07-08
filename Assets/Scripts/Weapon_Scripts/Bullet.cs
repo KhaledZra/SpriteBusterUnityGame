@@ -18,17 +18,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    // Kill what bullet hits
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Enemy"))
-    //     {
-    //         Destroy(gameObject);
-    //         var healthHandler = other.gameObject.GetComponent<HealthHandler>();
-    //         healthHandler.TakeDamage(damage);
-    //     }
-    // }
-    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
