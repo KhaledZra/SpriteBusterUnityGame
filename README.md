@@ -1,2 +1,6 @@
 # SpriteBuster
-Unity 2D roguelike game with inspiration from Vampire Survivors
+Unity 2D roguelike game with inspiration from Vampire Survivors. Game was made within 1.5 weeks using C#, Unity and Github :)!
+
+Link to game download: https://khaledzraiqi.itch.io/spritebuster
+
+Note: this is just the source code, requires Unity to test and run
