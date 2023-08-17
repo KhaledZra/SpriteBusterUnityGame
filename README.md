@@ -1,2 +1,2 @@
-# UnitySurvivorGame
-Unity 2D game with inspiration from Vampire Survivors
+# SpriteBuster
+Unity 2D roguelike game with inspiration from Vampire Survivors
